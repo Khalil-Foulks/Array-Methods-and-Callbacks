@@ -13,13 +13,46 @@ console.log('its working');
 (e) Winner of 2014 world cup final */
 
 
+
+const worldCup = fifaData.filter((home) => {
+    return home.Year === 2014 && home.Stage === 'Final';
+});
+
+const homeName = (worldCup.map(teamHome => teamHome['Home Team Name'])).shift();  //--if I wanted to move the value from the array and store in a value
+console.log(`Task 1a: ${homeName}`)
+
+const awayName = (worldCup.map(teamAway => teamAway['Away Team Name'])).shift();
+console.log(`Task 1b: ${awayName}`)
+
+const goalsHome = (worldCup.map(teamHomeGoals => teamHomeGoals['Home Team Goals'])).shift();
+console.log(`Task 1c: ${goalsHome}`)
+
+const goalsAway = (worldCup.map(teamAwayGoals => teamAwayGoals['Away Team Goals'])).shift();
+console.log(`Task 1d: ${goalsAway}`)
+
+if(goalsHome > goalsAway){
+    console.log(`Task 1e: ${homeName}`);
+}
+else{
+    console.log(`Task 1e: ${awayName}`);
+}
+
+// console.log(worldCup.map(teamHome => teamHome['Home Team Name']));
+// console.log(worldCup.map(teamAway => teamAway['Away Team Name']));
+// console.log(worldCup.map(teamHomeGoals => teamHomeGoals['Home Team Goals'])); //need to move this out of array into a variable shift
+// console.log(worldCup.map(teamAwayGoals => teamAwayGoals['Away Team Goals'])); //need to move this out of array into a variable
+//console.log(worldCup.map(winner => winner['Away Team Goals']));
+
+//const test = worldCup.map(teamHome => teamHome['Home Team Name']);  //--if I wanted to move the value from the array and store in a value
+//const test2 = test.shift();
+//console.log(test2);
+
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-
-    /* code here */
-
+function getFinals(data) {
+    return data.stage;
 };
+//console.log("Task 2: " + getFinals(fifaData));
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
